@@ -1,0 +1,17 @@
+{
+    "name": "blockchain-prototype-js",
+    "version": "1.0.0",
+    "description": "Código fuente javascript que simula el funcionamiento de un blockchain ",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "blockchain"
+    ],
+    "author": "devnido",
+    "license": "MIT",
+    "dependencies": {
+        "crypto-js": "^3.1.9-1"
+    }
+}
