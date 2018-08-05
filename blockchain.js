@@ -9,8 +9,7 @@ class Blockchain {
     createGenesisBlock() {
         return new Block({
             index: 0,
-            timestamp: "01/01/2018",
-            transaction: "Genesis block",
+            data: "Genesis block",
             previousHash: "0"
         });
     }
@@ -19,11 +18,10 @@ class Blockchain {
         return this.chain[this.chain.length - 1];
     }
 
-    addBlock(index, timestamp, transaction) {
+    addBlock(index, data) {
         const newBlock = new Block({
-            index,
-            timestamp,
-            transaction
+            index: index,
+            data: data
         });
         newBlock.previousHash = this.getLatestBlock().hash;
         newBlock.hash = newBlock.calculateHash();

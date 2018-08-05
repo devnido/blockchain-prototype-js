@@ -3,46 +3,36 @@ const Transaction = require('./transaction');
 
 let nidoChain = new Blockchain();
 
-nidoChain.addBlock({
-    index: 1,
-    timestamp: Date.now(),
-    data: new Transaction({
-        fromAddress: 'A',
-        toAddress: 'C',
-        amount: 5600
-    })
-});
+nidoChain.addBlock(1, new Transaction({
+    fromAddress: 'A',
+    toAddress: 'C',
+    amount: 5000
+}));
 
-nidoChain.addBlock({
-    index: 1,
-    timestamp: Date.now(),
-    data: new Transaction({
-        fromAddress: 'A',
-        toAddress: 'B',
-        amount: 5000
-    })
-});
+nidoChain.addBlock(2, new Transaction({
+    fromAddress: 'A',
+    toAddress: 'B',
+    amount: 5000
+}));
 
-nidoChain.addBlock({
-    index: 1,
-    timestamp: Date.now(),
-    data: new Transaction({
-        fromAddress: 'C',
-        toAddress: 'B',
-        amount: 200
-    })
-});
+nidoChain.addBlock(3, new Transaction({
+    fromAddress: 'B',
+    toAddress: 'C',
+    amount: 5000
+}));
 
-nidoChain.addBlock({
-    index: 1,
-    timestamp: Date.now(),
-    data: new Transaction({
-        fromAddress: 'C',
-        toAddress: 'A',
-        amount: 500
-    })
-});
+nidoChain.addBlock(4, new Transaction({
+    fromAddress: 'C',
+    toAddress: 'A',
+    amount: 5000
+}));
 
 
 
-console.log(JSON.stringify(nidoChain.chain, null, 4));
+console.log(JSON.stringify(nidoChain.chain, null, 4)); //blockchain data
+
+console.log('Is blockchain valid ? ' + nidoChain.isChainValid()) //true
+
+nidoChain.chain[1].data.amount = 33;
+
+console.log('Is blockchain valid ? ' + nidoChain.isChainValid()) //false
